@@ -1,0 +1,20 @@
+.signIn {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 20px;
+    margin: 30px 60px;
+    padding: 80px 60px;
+  }
+  
+  @media (max-width: 992px) {
+    .signIn {
+      margin: 30px 10px !important ;
+      padding: 30px 20px !important;
+    }
+  }
+  
+  @media ((min-width: 993px) and (max-width:1200px)) {
+   .signIn{
+    margin: 30px 5px !important ;
+   }
+  }
+  

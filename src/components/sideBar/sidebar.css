@@ -1,0 +1,19 @@
+.sidebar {
+  color: #fff;
+  overflow: hidden;
+}
+.sidebar img {
+  width: 30px;
+}
+.sidebar a {
+  transition: all 0.3s ease-in;
+
+}
+.sidebar a:hover {
+  background-color: #7787d7;
+  border-radius: 10px;
+  padding: 5px;
+}
+.sidebar hr{
+  border: 1px solid black;
+}
