@@ -64,7 +64,7 @@ const ModalAdd = () => {
     <>
       <Button
         className=" btn btn-lg d-flex align-items-center"
-        variant="primary"
+        variant="dark"
         onClick={handleShow}
       >
         <AiOutlinePlus className="fs-5 me-3" />

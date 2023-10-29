@@ -1,19 +1,23 @@
 .sidebar {
-  color: #fff;
+  color: #000 !important;
   overflow: hidden;
 }
-.sidebar img {
-  width: 30px;
+.sidebarImg {
+  width: 40px;
 }
-.sidebar a {
-  transition: all 0.3s ease-in;
+.sidebarWidth {
+  width: 17% !important;
+}
 
+@media (max-width: 768px) {
+  .sidebarWidth {
+    width: 17% !important;
+  }
+  .sidebarImg{
+    display: none;
+  }
 }
-.sidebar a:hover {
-  background-color: #7787d7;
-  border-radius: 10px;
-  padding: 5px;
-}
-.sidebar hr{
+
+.sidebar hr {
   border: 1px solid black;
 }
