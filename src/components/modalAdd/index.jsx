@@ -30,7 +30,6 @@ const ModalAdd = () => {
       const {data}= await baseInstance.post("notes",values,{
         headers: {   token: localStorage.getItem("userToken"), },
       })
-      console.log(data);
     if(data.msg){
       toast.success(data.msg,{duration:2000,className:"text-success px-4 fw-bolder"});
       handleClose()

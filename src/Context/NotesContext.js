@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import baseInstance from "../Networking/baseInstance";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
@@ -28,7 +28,6 @@ const NotesContextProvider = ({ children }) => {
       const { data } = await baseInstance.delete(`notes/${_id}`, {
         headers: {   token: localStorage.getItem("userToken"), },
       });
-      console.log(data);
       setUserNotes((prevNotes) => prevNotes.filter((note) => note._id !== _id));
     } catch (error) {
       toast.error(error.response.data.msg, {
@@ -52,9 +51,7 @@ const Sweet = () => {
 
   
 
-  useEffect(() => {
-    getUserNotes();
-  }, []);
+
 
   return (
     <NotesContext.Provider
