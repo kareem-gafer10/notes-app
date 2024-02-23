@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -13,6 +13,12 @@ const ModalAdd = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
+  useEffect(() => {
+    getUserNotes()
+  }, []);
+
 
   const addNotes = async (values) => {
     const title = values.title.trim();
