@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import baseInstance from "../Networking/baseInstance";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
@@ -22,6 +22,12 @@ const NotesContextProvider = ({ children }) => {
       // });
     }
   };
+
+
+  useEffect(() => {
+    getUserNotes()
+  }, []);
+
 
   const handleDelete = async (_id) => {
     try {

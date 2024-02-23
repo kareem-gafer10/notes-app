@@ -15,9 +15,7 @@ const ModalAdd = () => {
   const handleShow = () => setShow(true);
 
 
-  useEffect(() => {
-    getUserNotes()
-  }, []);
+  
 
 
   const addNotes = async (values) => {
