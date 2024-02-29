@@ -8,15 +8,13 @@ import toast from "react-hot-toast";
 import { NotesContext } from "../../Context/NotesContext";
 
 const ModalAdd = () => {
-  const {getUserNotes,Sweet} = useContext(NotesContext);
-  
+  const { getUserNotes, Sweet } = useContext(NotesContext);
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
   
-
 
   const addNotes = async (values) => {
     const title = values.title.trim();
@@ -24,28 +22,39 @@ const ModalAdd = () => {
     if (!title || !content) {
       toast.error("Please fill in both title and content fields.", {
         duration: 2000,
-        className: "text-danger px-4 fw-bolder"
+        className: "text-danger px-4 fw-bolder",
       });
       return;
     }
 
-    
     try {
-      const {data}= await baseInstance.post("notes",values,{
-        headers: {   token: localStorage.getItem("userToken"), },
-      })
-    if(data.msg){
-      toast.success(data.msg,{duration:2000,className:"text-success px-4 fw-bolder"});
-      handleClose()
-      getUserNotes()
-      Sweet()
-      formik.resetForm();
-    }
-    } 
-    catch(error){
-      toast.error(error.response.data.msg,{duration:2000,className:"text-danger px-4 fw-bolder"});
+      const { data } = await baseInstance.post("notes", values, {
+        headers: { token: localStorage.getItem("userToken") },
+      });
+      if (data.msg) {
+        toast.success(data.msg, {
+          duration: 2000,
+          className: "text-success px-4 fw-bolder",
+        });
+        handleClose();
+        getUserNotes();
+        Sweet();
+        formik.resetForm();
+      }
+    } catch (error) {
+      toast.error(error.response.data.msg, {
+        duration: 2000,
+        className: "text-danger px-4 fw-bolder",
+      });
     }
   };
+
+
+  useEffect(() => {
+    getUserNotes();
+  }, []);
+
+
 
 
 
@@ -57,11 +66,6 @@ const ModalAdd = () => {
     },
     onSubmit: addNotes,
   });
-
-
-  
-
-
 
   return (
     <>
