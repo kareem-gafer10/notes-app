@@ -14,8 +14,6 @@ const ModalAdd = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  
-
   const addNotes = async (values) => {
     const title = values.title.trim();
     const content = values.content.trim();
@@ -49,15 +47,9 @@ const ModalAdd = () => {
     }
   };
 
-
   useEffect(() => {
     getUserNotes();
   }, []);
-
-
-
-
-
 
   const formik = useFormik({
     initialValues: {
